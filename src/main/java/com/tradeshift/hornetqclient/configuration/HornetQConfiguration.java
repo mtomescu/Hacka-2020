@@ -13,8 +13,6 @@ import com.tradeshift.commons.messaging.jms.hornetq.HornetQConnectionFactory;
 
 @Configuration
 public class HornetQConfiguration {
-    @Value("${hosts.hornetq}")
-    public String hosts;
 
     @Bean
     public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() throws Exception {
@@ -27,7 +25,7 @@ public class HornetQConfiguration {
     @Bean
     public HornetQJMSConnectionFactory hornetQConnectionFactory() throws Exception {
         final HornetQConnectionFactory cf = new HornetQConnectionFactory();
-        cf.setHosts(hosts);
+        cf.setHosts("localhost:5446");
         return cf.getObject();
     }
 

@@ -11,5 +11,4 @@ public class HornetqClientApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HornetqClientApplication.class, args);
 	}
-
 }
