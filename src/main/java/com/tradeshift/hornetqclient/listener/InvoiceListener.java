@@ -13,7 +13,7 @@ public class InvoiceListener {
 
     @JmsListener(destination = "internalDispatchInvoice", containerFactory = "jmsListenerContainerFactory")
     public void consumeInvoice(DispatchMessage object) {
-        LOGGER.info("Received a message");
+        LOGGER.info("Received a message for docId {} and dispatchId {}", object.getObjectId(), object.getDispatchId() );
 
         LOGGER.info(object.toString());
     }
