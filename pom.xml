@@ -24,26 +24,48 @@
 			<artifactId>spring-boot-starter-hornetq</artifactId>
 			<version>1.4.7.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.tradeshift</groupId>
 			<artifactId>tradeshift-common-messaging-hornetq</artifactId>
 			<version>352.7.14</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.tradeshift</groupId>
 			<artifactId>tradeshift-common-messaging</artifactId>
 			<version>352.7.14</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.tradeshift</groupId>
 			<artifactId>tradeshift-common-xml</artifactId>
 			<version>352.7.14</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>com.tradeshift.backend</groupId>
+			<artifactId>tradeshift-backend-documents-dto</artifactId>
+			<version>2.2.0-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.rest-assured</groupId>
+					<artifactId>spring-web-test-client</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webflux</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-websocket</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
