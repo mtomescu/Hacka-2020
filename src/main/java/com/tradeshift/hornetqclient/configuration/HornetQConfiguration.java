@@ -13,8 +13,8 @@ import com.tradeshift.commons.messaging.jms.hornetq.HornetQConnectionFactory;
 
 @Configuration
 public class HornetQConfiguration {
-    @Value("hosts.hornetq")
-    private  String hosts;
+    @Value("${hosts.hornetq}")
+    public String hosts;
 
     @Bean
     public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() throws Exception {
