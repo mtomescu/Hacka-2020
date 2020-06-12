@@ -11,6 +11,8 @@ public class CommandLineAppRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        hornetQBrowserQueue.iterateOverQueueMessages();
+        while (true) {
+            hornetQBrowserQueue.iterateOverQueueMessages();
+        }
     }
 }

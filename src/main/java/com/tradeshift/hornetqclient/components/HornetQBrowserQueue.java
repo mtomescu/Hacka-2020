@@ -11,11 +11,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class HornetQBrowserQueue {
     private static final Logger LOGGER = LoggerFactory.getLogger(HornetQBrowserQueue.class);
+
     @Autowired
     private JmsTemplate jmsTemplate;
 
     public void iterateOverQueueMessages() {
-        List<String> messages = jmsTemplate.browse("BackendService.DocumentService_Dispatcher", new DispatchMessageCallback());
-        messages.forEach(el -> LOGGER.info("{}" , el));
+        List<String> messages = jmsTemplate.browse("internalDispatchInvoice", new DispatchMessageCallback());
+        if (messages != null) {
+            messages.forEach(el -> LOGGER.info("{}" , el));
+        }
     }
 }

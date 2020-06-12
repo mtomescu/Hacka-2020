@@ -16,13 +16,6 @@ public class DispatchMessageCallback implements BrowserCallback<List<String>> {
     @Override
     public List<String> doInJms(Session session, QueueBrowser queueBrowser) throws JMSException {
         Enumeration<?> messages = queueBrowser.getEnumeration();
-        if (!messages.hasMoreElements()) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
         while (messages.hasMoreElements()) {
             DispatchMessage dispatchMessage = (DispatchMessage) messages.nextElement();
             messsagesReceived.add("DocumentId: " + dispatchMessage.getObjectId().toString() + " - dispatchId: " + dispatchMessage.getDispatchId().toString());
