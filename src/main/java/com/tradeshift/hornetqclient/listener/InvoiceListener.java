@@ -17,4 +17,18 @@ public class InvoiceListener {
 
         LOGGER.info(object.toString());
     }
+
+    @JmsListener(destination = "internal", containerFactory = "jmsListenerContainerFactory")
+    public void consumeInternalQueue(DispatchMessage message) {
+        LOGGER.info("Received a message for docId {} and dispatchId {}", message.getObjectId(), message.getDispatchId() );
+
+        LOGGER.info(message.toString());
+    }
+
+    @JmsListener(destination = "DocumentService_Dispatcher", containerFactory = "jmsListenerContainerFactory")
+    public void consumeDispatcherQueue(DispatchMessage message) {
+        LOGGER.info("Received a message for docId {} and dispatchId {}", message.getObjectId(), message.getDispatchId() );
+
+        LOGGER.info(message.toString());
+    }
 }
